@@ -4,132 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Honda · Curvas de Alcance 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
 :root {
-  --red: #CC0000; --red2: #990000; --red3: #FF2D2D;
-  --bg: #0A0A0A; --bg2: #111; --bg3: #1A1A1A; --bg4: #222;
-  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
-  --text: #fff; --text2: rgba(255,255,255,0.65); --text3: rgba(255,255,255,0.35);
-  --card: rgba(255,255,255,0.04);
+  /* Paleta Modo Claro / Limpio */
+  --red: #CC0000; --red2: #A30000; --red-light: #FFF0F0;
+  --bg: #F4F5F7; --bg2: #FFFFFF; --bg3: #F8F9FA; 
+  --border: #E5E7EB; --border2: #D1D5DB;
+  --text: #111827; --text2: #4B5563; --text3: #6B7280;
+  --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
 }
 html, body { 
   height: 100%; 
-  background-color: var(--bg) !important; /* Blindaje para GitHub Pages */
+  background-color: var(--bg) !important; 
   color: var(--text) !important; 
   font-family: 'DM Sans', sans-serif; 
   overflow: hidden; 
 }
-#app { 
-  display: flex; flex-direction: column; height: 100vh; overflow: hidden; 
-  background-color: var(--bg) !important;
-}
+#app { display: flex; flex-direction: column; height: 100vh; overflow: hidden; background-color: var(--bg) !important; }
 
 /* HEADER */
 .header {
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 28px; border-bottom:1px solid var(--border);
-  background:rgba(10,10,10,0.95); backdrop-filter:blur(20px);
-  flex-shrink:0; gap:16px; flex-wrap:wrap;
+  padding:16px 32px; border-bottom:1px solid var(--border);
+  background:var(--bg2); flex-shrink:0; gap:16px; flex-wrap:wrap;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
-.header-brand { display:flex; align-items:center; gap:12px; }
+.header-brand { display:flex; align-items:center; gap:14px; }
 .header-logo {
-  width:40px; height:40px; border-radius:10px;
-  background:linear-gradient(135deg,var(--red),var(--red2));
+  width:42px; height:42px; border-radius:10px;
+  background:var(--red); color:#fff;
   display:flex; align-items:center; justify-content:center;
-  font-size:18px; box-shadow:0 4px 16px rgba(204,0,0,0.4);
-  flex-shrink:0;
+  font-size:20px; flex-shrink:0;
 }
-.header-title { font-size:17px; font-weight:800; letter-spacing:-0.03em; }
-.header-sub { font-size:11px; color:var(--text3); margin-top:1px; font-family:'DM Mono',monospace; }
-.model-tabs { display:flex; gap:4px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:3px; flex-wrap:wrap; }
+.header-title { font-size:18px; font-weight:800; color:var(--text); letter-spacing:-0.02em; }
+.header-sub { font-size:11px; color:var(--text3); margin-top:2px; font-family:'DM Mono',monospace; }
+.model-tabs { display:flex; gap:4px; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:4px; flex-wrap:wrap; }
 .model-tab {
-  padding:7px 16px; border-radius:9px; font-size:12px; font-weight:700;
-  cursor:pointer; border:none; background:transparent; color:var(--text3);
+  padding:8px 18px; border-radius:8px; font-size:13px; font-weight:700;
+  cursor:pointer; border:none; background:transparent; color:var(--text2);
   transition:all 0.2s; letter-spacing:0.01em; white-space:nowrap;
 }
-.model-tab.active { background:var(--red); color:#fff; box-shadow:0 2px 12px rgba(204,0,0,0.4); }
+.model-tab:hover { color:var(--text); }
+.model-tab.active { background:var(--bg2); color:var(--red); box-shadow:0 1px 3px rgba(0,0,0,0.05); }
 
 /* MAIN LAYOUT */
 .main { display:flex; flex:1; overflow:hidden; min-height:0; }
 .sidebar {
-  width:300px; flex-shrink:0; border-right:1px solid var(--border);
-  display:flex; flex-direction:column; overflow:hidden;
+  width:320px; flex-shrink:0; border-right:1px solid var(--border);
+  display:flex; flex-direction:column; overflow:hidden; background:var(--bg2);
 }
-.sidebar-scroll {
-  flex:1; overflow-y:auto; overflow-x:hidden; display:flex; flex-direction:column;
-}
-.sidebar-scroll::-webkit-scrollbar { width:3px; }
-.sidebar-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.12); border-radius:3px; }
-.content { flex:1; overflow-y:auto; overflow-x:hidden; min-height:0; }
-.content::-webkit-scrollbar { width:4px; }
-.content::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
+.sidebar-scroll { flex:1; overflow-y:auto; overflow-x:hidden; display:flex; flex-direction:column; padding:20px; gap:24px; }
+.sidebar-scroll::-webkit-scrollbar { width:4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background:var(--border2); border-radius:4px; }
+.content { flex:1; overflow-y:auto; overflow-x:hidden; min-height:0; padding:24px; }
+.content::-webkit-scrollbar { width:6px; }
+.content::-webkit-scrollbar-thumb { background:var(--border2); border-radius:6px; }
 
-/* SIDEBAR */
-.sidebar-section { padding:16px 18px; border-bottom:1px solid var(--border); flex-shrink:0; }
-.section-label { font-size:10px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; font-family:'DM Mono',monospace; }
-.seg-grid { display:flex; flex-direction:column; gap:4px; }
+/* SIDEBAR ELEMENTS */
+.section-label { font-size:11px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; font-family:'DM Mono',monospace; }
+.seg-grid { display:flex; flex-direction:column; gap:6px; }
 .seg-btn {
   display:flex; justify-content:space-between; align-items:center;
-  padding:7px 11px; border-radius:9px; border:1px solid var(--border);
-  background:transparent; color:var(--text2); font-size:12px; font-weight:600;
+  padding:10px 14px; border-radius:8px; border:1px solid var(--border);
+  background:var(--bg2); color:var(--text2); font-size:13px; font-weight:600;
   cursor:pointer; transition:all 0.15s; text-align:left; width:100%;
 }
-.seg-btn:hover { background:var(--card); border-color:var(--border2); }
-.seg-btn.active { background:rgba(204,0,0,0.12); border-color:rgba(204,0,0,0.35); color:#fff; }
-.seg-btn .seg-univ { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; flex-shrink:0; margin-left:8px; }
+.seg-btn:hover { border-color:var(--border2); background:var(--bg3); }
+.seg-btn.active { background:var(--red-light); border-color:rgba(204,0,0,0.3); color:var(--red); }
+.seg-btn .seg-univ { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+.seg-btn.active .seg-univ { color:var(--red); opacity:0.8; }
+
+/* DROPDOWN DEPARTAMENTOS */
+.dep-select {
+  width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg3); color: var(--text); font-size: 13px; font-weight: 600;
+  font-family: 'DM Sans', sans-serif; cursor: pointer; outline: none; transition: all 0.2s;
+  appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B7280' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center;
+}
+.dep-select:focus { border-color: var(--red); background: var(--bg2); }
 
 /* SLIDERS */
 .slider-block { margin-bottom:16px; }
-.slider-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; }
-.slider-label { font-size:13px; font-weight:600; color:var(--text2); }
-.slider-val { font-size:16px; font-weight:800; font-family:'DM Mono',monospace; color:var(--red3); }
+.slider-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.slider-label { font-size:13px; font-weight:600; color:var(--text); }
+.slider-val { font-size:16px; font-weight:800; font-family:'DM Mono',monospace; color:var(--red); }
 .slider-track { position:relative; height:28px; display:flex; align-items:center; }
-.slider-bg { position:absolute; left:0; right:0; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; overflow:hidden; }
-.slider-fill { height:100%; background:var(--red); border-radius:2px; transition:width 0.05s; }
+.slider-bg { position:absolute; left:0; right:0; height:6px; background:var(--border); border-radius:3px; overflow:hidden; }
+.slider-fill { height:100%; background:var(--red); border-radius:3px; transition:width 0.05s; }
 .slider-input { position:absolute; left:0; right:0; width:100%; opacity:0; height:28px; cursor:pointer; margin:0; }
-.slider-thumb { position:absolute; width:20px; height:20px; border-radius:50%; background:#fff; border:2.5px solid var(--red); box-shadow:0 2px 8px rgba(0,0,0,0.4); pointer-events:none; transition:left 0.05s; }
-.slider-minmax { display:flex; justify-content:space-between; margin-top:3px; }
-.slider-minmax span { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; }
+.slider-thumb { position:absolute; width:20px; height:20px; border-radius:50%; background:#fff; border:2px solid var(--red); box-shadow:0 2px 4px rgba(0,0,0,0.15); pointer-events:none; transition:left 0.05s; }
+.slider-minmax { display:flex; justify-content:space-between; margin-top:4px; }
+.slider-minmax span { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
 
 /* RESULT BOX */
 .result-box {
-  background:linear-gradient(135deg,rgba(204,0,0,0.15),rgba(153,0,0,0.08));
-  border:1px solid rgba(204,0,0,0.25); border-radius:14px;
-  padding:16px; text-align:center; margin-top:4px;
+  background:var(--red-light); border:1px solid rgba(204,0,0,0.15); border-radius:12px;
+  padding:18px; text-align:center;
 }
-.result-label { font-size:11px; color:rgba(204,0,0,0.7); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:'DM Mono',monospace; }
-.result-number { font-size:30px; font-weight:800; color:var(--red3); letter-spacing:-0.03em; line-height:1.1; }
-.result-sub { font-size:11px; color:var(--text3); margin-top:5px; }
-.result-pct { font-size:13px; font-weight:700; color:var(--red); margin-top:3px; }
+.result-label { font-size:11px; color:var(--red); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; font-family:'DM Mono',monospace; }
+.result-number { font-size:32px; font-weight:800; color:var(--red); letter-spacing:-0.03em; line-height:1.1; }
+.result-sub { font-size:12px; color:var(--text2); margin-top:6px; }
+.result-pct { font-size:14px; font-weight:700; color:var(--text); margin-top:4px; }
 
 /* CONTENT PANELS */
-.panels { padding:20px; display:flex; flex-direction:column; gap:16px; }
-.panel { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
-.panel-title { font-size:10px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px; font-family:'DM Mono',monospace; }
-.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-.metric { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
-.metric-label { font-size:10px; color:var(--text3); text-transform:uppercase; letter-spacing:0.08em; font-family:'DM Mono',monospace; margin-bottom:5px; }
-.metric-val { font-size:20px; font-weight:800; letter-spacing:-0.02em; line-height:1; }
-.metric-sub { font-size:11px; color:var(--text3); margin-top:4px; }
+.panels { display:flex; flex-direction:column; gap:20px; max-width:1200px; margin:0 auto; }
+.panel { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:24px; box-shadow:var(--card-shadow); }
+.panel-title { font-size:12px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; font-family:'DM Mono',monospace; border-bottom:1px solid var(--border); padding-bottom:12px;}
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.metric { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:0 1px 2px rgba(0,0,0,0.02); }
+.metric-label { font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.05em; font-family:'DM Mono',monospace; margin-bottom:8px; }
+.metric-val { font-size:24px; font-weight:800; letter-spacing:-0.02em; line-height:1; color:var(--text); }
+.metric-sub { font-size:12px; color:var(--text2); margin-top:6px; }
 
-/* TABLE OVERRIDES (Protección contra estilos oscuros de GitHub) */
-.dep-table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background-color: transparent !important; }
-.dep-table tr { background-color: transparent !important; }
-.dep-table tr:nth-child(even), .dep-table tr:nth-child(odd) { background-color: transparent !important; }
-.dep-table th { text-align:left; font-size:9px; font-weight:700; color:var(--text3) !important; text-transform:uppercase; padding:7px 10px; border-bottom:1px solid var(--border) !important; background-color: transparent !important; }
+/* TABLE OVERRIDES */
+.dep-table { width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed; background-color: var(--bg2) !important; }
+.dep-table tr { background-color: var(--bg2) !important; }
+.dep-table th { text-align:left; font-size:10px; font-weight:700; color:var(--text3) !important; text-transform:uppercase; padding:10px 12px; border-bottom:2px solid var(--border) !important; background-color: var(--bg2) !important; }
 .dep-table th.r { text-align:right; }
-.dep-table td { padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.04) !important; color:var(--text2) !important; background-color: transparent !important; vertical-align:middle; border-top: none !important; }
-.dep-table td.r { text-align:right; font-family:'DM Mono',monospace; font-size:11px; }
-.dep-table tr:hover td { background-color:rgba(255,255,255,0.025) !important; }
-.dep-name { display:flex; align-items:center; gap:6px; font-weight:700; }
-.dep-name .medal { font-size:12px; flex-shrink:0; }
-.dep-name .dname { font-size:12px; font-weight:700; color:var(--text) !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.dep-table td { padding:10px 12px; border-bottom:1px solid var(--border) !important; color:var(--text2) !important; background-color: var(--bg2) !important; vertical-align:middle; border-top: none !important; }
+.dep-table td.r { text-align:right; font-family:'DM Mono',monospace; font-size:12px; }
+.dep-table tr:hover td { background-color:var(--bg) !important; }
+.dep-name { display:flex; align-items:center; gap:8px; font-weight:700; }
+.dep-name .medal { font-size:14px; flex-shrink:0; }
+.dep-name .dname { font-size:13px; font-weight:700; color:var(--text) !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
 canvas { display:block; width:100%!important; }
-.footnote { font-size:10px; color:var(--text3); margin-top:10px; font-family:'DM Mono',monospace; line-height:1.5; }
+.footnote { font-size:11px; color:var(--text3); margin-top:12px; font-family:'DM Mono',monospace; line-height:1.5; }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .fade-up { animation:fadeUp 0.3s ease both; }
@@ -150,47 +153,53 @@ canvas { display:block; width:100%!important; }
   <div class="main">
     <div class="sidebar">
       <div class="sidebar-scroll">
-        <div class="sidebar-section">
+        
+        <div>
           <div class="section-label">Segmento Meta</div>
           <div class="seg-grid" id="segGrid"></div>
         </div>
-        <div class="sidebar-section">
-          <div class="section-label">Simulador</div>
-        <div class="slider-block">
-          <div class="slider-header">
-            <span class="slider-label">Inversión</span>
-            <span class="slider-val" id="invVal">$100M</span>
-          </div>
-          <div class="slider-track">
-            <div class="slider-bg"><div class="slider-fill" id="invFill" style="width:16%"></div></div>
-            <input type="range" class="slider-input" id="invSlider" min="5" max="650" step="5" value="100">
-            <div class="slider-thumb" id="invThumb" style="left:calc(16% - 10px)"></div>
-          </div>
-          <div class="slider-minmax"><span>$5M</span><span>$650M</span></div>
+
+        <div>
+          <div class="section-label">Filtrar por Departamento</div>
+          <select id="depSelect" class="dep-select"></select>
         </div>
-        <div class="slider-block">
-          <div class="slider-header">
-            <span class="slider-label">Frecuencia</span>
-            <span class="slider-val" id="freqVal" style="color:#FF9500">5.0×</span>
+
+        <div>
+          <div class="section-label">Simulador de Inversión</div>
+          <div class="slider-block">
+            <div class="slider-header">
+              <span class="slider-label">Presupuesto</span>
+              <span class="slider-val" id="invVal">$100M</span>
+            </div>
+            <div class="slider-track">
+              <div class="slider-bg"><div class="slider-fill" id="invFill" style="width:16%"></div></div>
+              <input type="range" class="slider-input" id="invSlider" min="5" max="650" step="5" value="100">
+              <div class="slider-thumb" id="invThumb" style="left:calc(16% - 10px)"></div>
+            </div>
+            <div class="slider-minmax"><span>$5M</span><span>$650M</span></div>
           </div>
-          <div class="slider-track">
-            <div class="slider-bg"><div class="slider-fill" id="freqFill" style="background:#FF9500;width:21%"></div></div>
-            <input type="range" class="slider-input" id="freqSlider" min="1" max="20" step="0.5" value="5">
-            <div class="slider-thumb" id="freqThumb" style="left:calc(21% - 10px);border-color:#FF9500"></div>
+          
+          <div class="slider-block">
+            <div class="slider-header">
+              <span class="slider-label">Frecuencia Meta</span>
+              <span class="slider-val" id="freqVal" style="color:#D97706">5.0×</span>
+            </div>
+            <div class="slider-track">
+              <div class="slider-bg"><div class="slider-fill" id="freqFill" style="background:#F59E0B;width:21%"></div></div>
+              <input type="range" class="slider-input" id="freqSlider" min="1" max="20" step="0.5" value="5">
+              <div class="slider-thumb" id="freqThumb" style="left:calc(21% - 10px);border-color:#F59E0B"></div>
+            </div>
+            <div class="slider-minmax"><span>1×</span><span>20×</span></div>
           </div>
-          <div class="slider-minmax"><span>1×</span><span>20×</span></div>
+          
+          <div class="result-box" id="resultBox">
+            <div class="result-label">Alcance Estimado</div>
+            <div class="result-number" id="resultNum">—</div>
+            <div class="result-pct" id="resultPct">—% del universo</div>
+            <div class="result-sub" id="resultSub">selecciona un segmento</div>
+          </div>
         </div>
-        <div class="result-box" id="resultBox">
-          <div class="result-label">Alcance Estimado</div>
-          <div class="result-number" id="resultNum">—</div>
-          <div class="result-pct" id="resultPct">—% del universo</div>
-          <div class="result-sub" id="resultSub">selecciona un segmento</div>
-        </div>
-      </div>
-      <div class="sidebar-section">
-        <div class="section-label">CPM por formato</div>
-        <canvas id="cpmCanvas" height="220"></canvas>
-      </div>
+
       </div>
     </div>
     <div class="content">
@@ -199,17 +208,17 @@ canvas { display:block; width:100%!important; }
         <div class="grid2">
           <div class="panel">
             <div class="panel-title" id="curveTitle">Curva de Alcance</div>
-            <canvas id="reachCanvas" height="200"></canvas>
+            <canvas id="reachCanvas" height="220"></canvas>
             <div class="footnote" id="curveLegend"></div>
           </div>
           <div class="panel">
-            <div class="panel-title" id="depBarTitle">Top Departamentos</div>
-            <canvas id="depCanvas" height="260"></canvas>
+            <div class="panel-title" id="depBarTitle">Desglose de Departamentos</div>
+            <canvas id="depCanvas" height="220"></canvas>
             <div class="footnote" id="depLegend"></div>
           </div>
         </div>
         <div class="panel">
-          <div class="panel-title">Detalle por departamento</div>
+          <div class="panel-title" id="tableTitle">Detalle Operativo</div>
           <table class="dep-table">
             <thead>
               <tr>
@@ -217,7 +226,7 @@ canvas { display:block; width:100%!important; }
                 <th class="r" style="width:17%">Universo seg.</th>
                 <th class="r" style="width:17%">Alcance est.</th>
                 <th class="r" style="width:11%">% Alcance</th>
-                <th class="r" style="width:12%">Inv. ref.</th>
+                <th class="r" style="width:12%">Inv. est.</th>
                 <th style="width:17%"></th>
               </tr>
             </thead>
@@ -233,35 +242,35 @@ canvas { display:block; width:100%!important; }
 <script>
 const MODELS = {
   CB100F:{
-    label:'CB100F',color:'#CC0000',
+    label:'CB100F',
     universos:{Nacional:9500000,Regiones:6350000,Domiciliarios:2600000,Independientes:7950000,Mototaxistas:464800,Younger:3952335},
     cpm:{'FB Video Ad':1266,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Rappi In App':30400,'Yango Display':130000,'LeadGenios':25000},
     refPct:0.85,refFreq:5.17,segDefault:'Regiones',
     deps:{'Valle del Cauca':0.1198,'Antioquia':0.1159,'Bolívar':0.0857,'Santander':0.0798,'Cundinamarca':0.0798,'Córdoba':0.0682,'Atlántico':0.0545,'Nariño':0.0516,'Putumayo':0.0370,'Huila':0.0351,'Tolima':0.0341,'Cauca':0.0331,'Cesar':0.0302,'Nte. Santander':0.0282,'Sucre':0.0273,'Magdalena':0.0263,'Caquetá':0.0234,'Meta':0.0136,'Caldas':0.0097,'Risaralda':0.0078}
   },
   CB125F:{
-    label:'CB125F',color:'#E30000',
+    label:'CB125F',
     universos:{'Nac. excl.':8350000,Regiones:7800000},
     cpm:{'FB Video Dep.':1369,'FB Video Nac.':786,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Rappi In App':30400},
     refPct:0.83,refFreq:10.41,segDefault:'Regiones',
     deps:{'Valle del Cauca':0.1444,'Antioquia':0.1028,'Cundinamarca':0.0992,'Santander':0.0627,'Tolima':0.0545,'Nte. Santander':0.0545,'Cauca':0.0488,'Huila':0.0473,'Nariño':0.0462,'Bolívar':0.0416,'Córdoba':0.0401,'Atlántico':0.0360,'Putumayo':0.0288,'Caquetá':0.0267,'Meta':0.0221,'Risaralda':0.0211,'Cesar':0.0185,'Sucre':0.0185,'Magdalena':0.0175,'Casanare':0.0170}
   },
   XR150L:{
-    label:'XR150L',color:'#B00000',
+    label:'XR150L',
     universos:{'Nac. excl.':4000000,Regiones:4000000},
     cpm:{'FB Video Dep.':1190,'FB Video Nac.':854,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'LeadGenios':25000,'Seedtag':22880},
     refPct:0.74,refFreq:5.02,segDefault:'Regiones',
     deps:{'Antioquia':0.1671,'Valle del Cauca':0.0840,'Huila':0.0689,'Cundinamarca':0.0673,'Cauca':0.0586,'Santander':0.0527,'Caquetá':0.0463,'Córdoba':0.0428,'Magdalena':0.0388,'Atlántico':0.0368,'Bolívar':0.0333,'Nariño':0.0345,'Sucre':0.0309,'Putumayo':0.0293,'Tolima':0.0289,'Arauca':0.0250,'Cesar':0.0242,'Meta':0.0198,'Caldas':0.0186,'Casanare':0.0178}
   },
   XR190L:{
-    label:'XR190L',color:'#990000',
+    label:'XR190L',
     universos:{'Nac. excl.':7500000,Regiones:7600000},
     cpm:{'FB Video Dep.':1061,'FB Video Nac.':791,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Adslive Podcast':432},
     refPct:0.81,refFreq:4.90,segDefault:'Regiones',
     deps:{'Antioquia':0.1815,'Valle del Cauca':0.0962,'Cundinamarca':0.0914,'Santander':0.0532,'Cauca':0.0461,'Córdoba':0.0447,'Nariño':0.0447,'Huila':0.0409,'Atlántico':0.0334,'Magdalena':0.0324,'Sucre':0.0317,'Bolívar':0.0307,'Tolima':0.0297,'Caquetá':0.0266,'Nte. Santander':0.0249,'Caldas':0.0246,'Cesar':0.0246,'Putumayo':0.0239,'Meta':0.0218,'Casanare':0.0212}
   },
   PCX160:{
-    label:'PCX160',color:'#FF2D2D',
+    label:'PCX160',
     universos:{Nacional:8350000,Medellín:1200000,Cali:900000,Bucaramanga:650000,Bogotá:2500000,'Resto país':3100000},
     cpm:{'FB Video Ad':1000,'TikTok Top View':4000,'TikTok Top Feed':2000,'TikTok In Feed':1500,'YouTube Instream':1900,'Nequi Video':15000,'Yango In App':18000,'Konekti':30500},
     refPct:0.64,refFreq:7.16,segDefault:'Nacional',
@@ -271,6 +280,7 @@ const MODELS = {
 
 let curModel = 'CB100F';
 let curSeg   = 'Regiones';
+let curDepFilter = 'Todos';
 let inv      = 100;
 let freq     = 5.0;
 
@@ -295,7 +305,12 @@ function buildModelTabs() {
     const btn = document.createElement('button');
     btn.className = 'model-tab' + (k === curModel ? ' active' : '');
     btn.textContent = MODELS[k].label;
-    btn.onclick = () => { curModel = k; curSeg = MODELS[k].segDefault; buildAll(); };
+    btn.onclick = () => { 
+      curModel = k; 
+      curSeg = MODELS[k].segDefault; 
+      curDepFilter = 'Todos'; // Resetear filtro al cambiar modelo
+      buildAll(); 
+    };
     container.appendChild(btn);
   });
 }
@@ -308,30 +323,61 @@ function buildSegGrid() {
     const btn = document.createElement('button');
     btn.className = 'seg-btn' + (seg === curSeg ? ' active' : '');
     btn.innerHTML = `<span>${seg}</span><span class="seg-univ">${fmt(univ)}</span>`;
-    btn.onclick = () => { curSeg = seg; buildAll(); };
+    btn.onclick = () => { curSeg = seg; updateViews(); };
     container.appendChild(btn);
   });
+}
+
+function buildDepSelect() {
+  const m = MODELS[curModel];
+  const select = document.getElementById('depSelect');
+  const deps = Object.keys(m.deps).sort();
+  let html = `<option value="Todos">Todos los departamentos</option>`;
+  deps.forEach(d => {
+    html += `<option value="${d}" ${curDepFilter === d ? 'selected' : ''}>${d}</option>`;
+  });
+  select.innerHTML = html;
+}
+
+document.getElementById('depSelect').addEventListener('change', function() {
+  curDepFilter = this.value;
+  updateViews();
+});
+
+function updateViews() {
+  buildMetrics();
+  updateResult();
+  drawReachCurve();
+  drawDepBars();
+  buildDepTable();
 }
 
 function buildMetrics() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
   const seg  = segs.includes(curSeg) ? curSeg : segs[0];
-  const univ = m.universos[seg];
+  
+  const baseUniv = m.universos[seg];
+  const share = curDepFilter === 'Todos' ? 1 : m.deps[curDepFilter];
+  const univ = baseUniv * share;
+  
   const avg  = getAvgCPM(m);
-  const reach = calcReach(inv, univ, avg, freq);
-  const pct   = (reach/univ*100).toFixed(1);
+  const totalReach = calcReach(inv, baseUniv, avg, freq);
+  const reach = totalReach * share;
+  const pct   = univ > 0 ? (reach/univ*100).toFixed(1) : 0;
+
+  let geoLabel = curDepFilter === 'Todos' ? seg : curDepFilter;
 
   const cards = [
-    {label:'Universo', val:fmt(univ), sub:seg, col:'#CC0000'},
-    {label:'CPM promedio', val:'$'+Math.round(avg).toLocaleString('es-CO'), sub:'pesos por 1.000 imp.',col:'#CC0000'},
-    {label:'Alcance estimado',val:pct+'%', sub:fmt(Math.round(reach))+' personas', col: reach/univ>0.7?'#34C759':'#FF6B6B'},
-    {label:'Frecuencia ref.',val:m.refFreq+'×', sub:'benchmark campaña', col:'#FF9500'},
+    {label:'Universo Segmento', val:fmt(univ), sub:geoLabel},
+    {label:'CPM Promedio', val:'$'+Math.round(avg).toLocaleString('es-CO'), sub:'pesos por 1.000 imp.'},
+    {label:'Alcance Estimado',val:pct+'%', sub:fmt(Math.round(reach))+' personas', col: reach/univ>0.7?'#10B981':'#EF4444'},
+    {label:'Frecuencia Ref.',val:m.refFreq+'×', sub:'benchmark campaña'},
   ];
   document.getElementById('metricCards').innerHTML = cards.map(c=>`
     <div class="metric fade-up">
       <div class="metric-label">${c.label}</div>
-      <div class="metric-val" style="color:${c.col}">${c.val}</div>
+      <div class="metric-val" ${c.col ? `style="color:${c.col}"` : ''}>${c.val}</div>
       <div class="metric-sub">${c.sub}</div>
     </div>`).join('');
 }
@@ -340,13 +386,22 @@ function updateResult() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
   const seg  = segs.includes(curSeg) ? curSeg : segs[0];
-  const univ = m.universos[seg];
+  
+  const baseUniv = m.universos[seg];
+  const share = curDepFilter === 'Todos' ? 1 : m.deps[curDepFilter];
+  const univ = baseUniv * share;
+  
   const avg  = getAvgCPM(m);
-  const reach = calcReach(inv, univ, avg, freq);
-  const pct   = (reach/univ*100).toFixed(1);
+  const totalReach = calcReach(inv, baseUniv, avg, freq);
+  const reach = totalReach * share;
+  
+  const pct   = univ > 0 ? (reach/univ*100).toFixed(1) : 0;
+  let geoLabel = curDepFilter === 'Todos' ? seg : curDepFilter;
+  let invLabel = curDepFilter === 'Todos' ? inv : Math.round(inv * share);
+
   document.getElementById('resultNum').textContent  = fmt(Math.round(reach));
   document.getElementById('resultPct').textContent  = pct + '% del universo';
-  document.getElementById('resultSub').textContent  = 'con $'+inv+'M COP · frec. '+freq.toFixed(1)+'× · '+seg;
+  document.getElementById('resultSub').textContent  = `con ~$${invLabel}M COP (inversión prop.) · frec. ${freq.toFixed(1)}× · ${geoLabel}`;
 }
 
 function drawReachCurve() {
@@ -354,31 +409,36 @@ function drawReachCurve() {
   const m   = MODELS[curModel];
   const segs= Object.keys(m.universos);
   const seg = segs.includes(curSeg) ? curSeg : segs[0];
-  const univ= m.universos[seg];
+  
+  const baseUniv = m.universos[seg];
+  const share = curDepFilter === 'Todos' ? 1 : m.deps[curDepFilter];
+  const univ = baseUniv * share;
+  
   const avg = getAvgCPM(m);
 
-  cv.width  = cv.parentElement.clientWidth - 36;
+  cv.width  = cv.parentElement.clientWidth - 48;
   const ctx = cv.getContext('2d');
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
 
-  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.strokeStyle = 'rgba(0,0,0,0.05)';
   ctx.lineWidth = 1;
   for(let i=1;i<5;i++){
     ctx.beginPath(); ctx.moveTo(0,H*i/5); ctx.lineTo(W,H*i/5); ctx.stroke();
   }
 
   const maxInv = Math.max(inv * 2, 400);
-  const PAD = 8;
+  const PAD = 10;
   const pts = [];
   for(let i=1;i<=100;i++){
     const x = (maxInv/100)*i;
-    const r = calcReach(x, univ, avg, freq);
-    pts.push({ x: PAD + (i/100)*(W-PAD*2), y: H-PAD - (r/univ)*(H-PAD*2) });
+    const rTotal = calcReach(x, baseUniv, avg, freq);
+    const r = rTotal * share;
+    pts.push({ x: PAD + (i/100)*(W-PAD*2), y: H-PAD - (univ > 0 ? (r/univ) : 0)*(H-PAD*2) });
   }
 
   const grad = ctx.createLinearGradient(0,0,0,H);
-  grad.addColorStop(0,'rgba(204,0,0,0.18)');
+  grad.addColorStop(0,'rgba(204,0,0,0.12)');
   grad.addColorStop(1,'rgba(204,0,0,0.01)');
   ctx.beginPath(); ctx.moveTo(pts[0].x, H);
   pts.forEach(p=>ctx.lineTo(p.x,p.y));
@@ -393,20 +453,21 @@ function drawReachCurve() {
   ctx.strokeStyle = '#CC0000'; ctx.lineWidth = 2.5; ctx.stroke();
 
   const cx = PAD + (inv/maxInv)*(W-PAD*2);
-  const reach = calcReach(inv, univ, avg, freq);
-  const cy = H - PAD - (reach/univ)*(H-PAD*2);
+  const reachTotal = calcReach(inv, baseUniv, avg, freq);
+  const reach = reachTotal * share;
+  const cy = H - PAD - (univ > 0 ? (reach/univ) : 0)*(H-PAD*2);
 
   ctx.setLineDash([4,4]);
   ctx.beginPath(); ctx.moveTo(cx,H); ctx.lineTo(cx,cy);
-  ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1.5; ctx.stroke();
+  ctx.strokeStyle='rgba(0,0,0,0.2)'; ctx.lineWidth=1.5; ctx.stroke();
   ctx.setLineDash([]);
 
-  ctx.beginPath(); ctx.arc(cx,cy,10,0,Math.PI*2);
-  ctx.fillStyle='rgba(204,0,0,0.2)'; ctx.fill();
-  ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2);
-  ctx.fillStyle='#FF2D2D'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx,cy,6,0,Math.PI*2);
+  ctx.fillStyle='#CC0000'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx,cy,3,0,Math.PI*2);
+  ctx.fillStyle='#FFFFFF'; ctx.fill();
 
-  ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font='9px DM Mono, monospace'; ctx.textAlign='center';
+  ctx.fillStyle='rgba(0,0,0,0.5)'; ctx.font='10px DM Mono, monospace'; ctx.textAlign='center';
   [0.25,0.5,0.75,1].forEach(p=>{
     const v=Math.round(maxInv*p);
     ctx.fillText('$'+v+'M', PAD+(p*(W-PAD*2)), H-1);
@@ -419,38 +480,9 @@ function drawReachCurve() {
     ctx.fillText(v>=1e6?(v/1e6).toFixed(1)+'M':Math.round(v/1000)+'K', 2, y-2);
   });
 
-  document.getElementById('curveTitle').textContent = `Curva de alcance · ${m.label} · ${seg}`;
-  document.getElementById('curveLegend').textContent = `Universo: ${fmt(univ)} · CPM: $${Math.round(avg).toLocaleString('es-CO')} · Pto: $${inv}M → ${(reach/univ*100).toFixed(1)}%`;
-}
-
-function drawCPM() {
-  const cv  = document.getElementById('cpmCanvas');
-  const m   = MODELS[curModel];
-  cv.width  = cv.parentElement.clientWidth - 40;
-  const ctx = cv.getContext('2d');
-  const W = cv.width, H = cv.height;
-  ctx.clearRect(0,0,W,H);
-
-  const labels = Object.keys(m.cpm);
-  const vals   = Object.values(m.cpm);
-  const maxV   = Math.max(...vals);
-  const bH     = Math.floor((H-8)/labels.length) - 4;
-
-  labels.forEach((lbl,i) => {
-    const v = vals[i];
-    const bW = Math.max(3, (v/maxV)*(W*0.45));
-    const y  = 4 + i*(bH+4);
-    const alpha = v < 2000 ? 0.85 : v < 10000 ? 0.5 : 0.25;
-    ctx.fillStyle = `rgba(204,0,0,${alpha})`;
-    if(ctx.roundRect) ctx.roundRect(0,y,bW,bH,3); else ctx.rect(0,y,bW,bH);
-    ctx.fill();
-    ctx.fillStyle = v < 2000 ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.5)';
-    ctx.font = `${Math.max(9,Math.min(11,bH*0.7))}px DM Sans, sans-serif`;
-    ctx.textAlign = 'left';
-    ctx.fillText(lbl, bW + 5, y + bH*0.73);
-    ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.fillText('$' + v.toLocaleString('es-CO'), bW + 5 + ctx.measureText(lbl).width + 5, y + bH*0.73);
-  });
+  let geoLabel = curDepFilter === 'Todos' ? seg : curDepFilter;
+  document.getElementById('curveTitle').textContent = `Curva de Alcance · ${m.label} · ${geoLabel}`;
+  document.getElementById('curveLegend').textContent = `Universo: ${fmt(univ)} · Inversión referencial Pto: $${Math.round(inv*share)}M → ${univ > 0 ? (reach/univ*100).toFixed(1) : 0}%`;
 }
 
 function drawDepBars() {
@@ -458,72 +490,83 @@ function drawDepBars() {
   const m   = MODELS[curModel];
   const segs= Object.keys(m.universos);
   const seg = segs.includes(curSeg) ? curSeg : segs[0];
-  const univ= m.universos[seg];
+  const baseUniv = m.universos[seg];
   const avg = getAvgCPM(m);
-  const reach= calcReach(inv, univ, avg, freq);
+  const reachTotal= calcReach(inv, baseUniv, avg, freq);
 
-  cv.width  = cv.parentElement.clientWidth - 36;
+  cv.width  = cv.parentElement.clientWidth - 48;
   const ctx = cv.getContext('2d');
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
 
-  // ¡Arreglo! Ahora pinta TODAS las regiones en lugar de limitar con .slice(0, 15)
-  const deps   = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
-  const maxR   = reach * deps[0][1];
-  const bH     = Math.floor((H-8)/deps.length) - 2;
+  let deps = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
+  if (curDepFilter !== 'Todos') {
+    deps = deps.filter(d => d[0] === curDepFilter);
+  }
+
+  if(deps.length === 0) return;
+
+  const maxR = reachTotal * Object.entries(m.deps).sort((a,b)=>b[1]-a[1])[0][1]; // max absolute
+  const bH = Math.min(24, Math.floor((H-10)/deps.length) - 4);
 
   deps.forEach(([dep,share],i) => {
-    const r  = reach * share;
-    const bW = Math.max(3,(r/maxR)*(W*0.40));
-    const y  = 4 + i*(bH+2);
-    const alpha = i<3 ? 0.8 : 0.4;
-    ctx.fillStyle = `rgba(204,0,0,${alpha})`;
-    if(ctx.roundRect) ctx.roundRect(0,y,bW,bH,3); else ctx.rect(0,y,bW,bH);
+    const r  = reachTotal * share;
+    const bW = Math.max(4,(r/maxR)*(W*0.50));
+    const y  = 10 + i*(bH+4);
+    
+    ctx.fillStyle = `rgba(204,0,0,0.8)`;
+    if(ctx.roundRect) ctx.roundRect(0,y,bW,bH,4); else ctx.rect(0,y,bW,bH);
     ctx.fill();
-    ctx.fillStyle = i<3?'rgba(255,255,255,0.85)':'rgba(255,255,255,0.5)';
-    ctx.font = `${Math.max(9,Math.min(11,bH*0.7))}px DM Sans, sans-serif`;
+    
+    ctx.fillStyle = '#111827';
+    ctx.font = `500 12px DM Sans, sans-serif`;
     ctx.textAlign = 'left';
-    ctx.fillText(dep, bW+5, y+bH*0.73);
-    ctx.fillStyle='rgba(255,255,255,0.3)';
-    ctx.fillText(fmt(Math.round(r)), bW+5+ctx.measureText(dep).width+5, y+bH*0.73);
+    ctx.fillText(dep, bW+8, y+bH*0.7);
+    
+    ctx.fillStyle='#6B7280';
+    ctx.fillText(fmt(Math.round(r)), bW+8+ctx.measureText(dep).width+6, y+bH*0.7);
   });
 
-  document.getElementById('depBarTitle').textContent = `Top Departamentos · $${inv}M · ${seg}`;
-  document.getElementById('depLegend').textContent   = `Alcance total estimado: ${fmt(Math.round(reach))} personas.`;
+  document.getElementById('depBarTitle').textContent = curDepFilter === 'Todos' ? `Top Departamentos · $${inv}M` : `Detalle Departamento · $${Math.round(inv * m.deps[curDepFilter])}M`;
 }
 
 function buildDepTable() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
   const seg  = segs.includes(curSeg) ? curSeg : segs[0];
-  const univ = m.universos[seg];
+  const baseUniv = m.universos[seg];
   const avg  = getAvgCPM(m);
-  const reach= calcReach(inv, univ, avg, freq);
-  const sorted = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
+  const reachTotal = calcReach(inv, baseUniv, avg, freq);
+  
+  let sorted = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
   const maxShare = sorted[0][1];
 
-  // ¡Arreglo! Se incluyeron variables de color por defecto en el style para que GitHub no las sobrescriba en blanco.
+  if (curDepFilter !== 'Todos') {
+    sorted = sorted.filter(d => d[0] === curDepFilter);
+  }
+
   document.getElementById('depTableBody').innerHTML = sorted.map(([dep,share],i)=>{
-    const dU   = Math.round(univ * share);
-    const dR   = Math.round(reach * share);
+    const dU   = Math.round(baseUniv * share);
+    const dR   = Math.round(reachTotal * share);
     const dPct = dU > 0 ? (dR/dU*100).toFixed(0) : '0';
     const dInv = Math.round(inv * share);
     const barPx = Math.max(2, Math.round((share/maxShare)*100));
-    const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-    const rowBg = i < 3 ? 'rgba(204,0,0,0.06)' : 'transparent';
+    const medal = (i===0 && curDepFilter==='Todos')?'🥇':(i===1 && curDepFilter==='Todos')?'🥈':(i===2 && curDepFilter==='Todos')?'🥉':'';
+    const rowBg = (i < 3 && curDepFilter === 'Todos') ? 'rgba(204,0,0,0.03)' : 'transparent';
+    
     return `<tr style="background:${rowBg} !important">
-      <td style="padding:7px 10px">
+      <td style="padding:10px 12px">
         <div class="dep-name">
-          ${medal ? `<span class="medal">${medal}</span>` : `<span style="display:inline-block;width:18px;text-align:center;font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">${i+1}</span>`}
-          <span class="dname" style="color:var(--text) !important">${dep}</span>
+          ${medal ? `<span class="medal">${medal}</span>` : `<span style="display:inline-block;width:18px;text-align:center;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace">${curDepFilter==='Todos'?i+1:'-'}</span>`}
+          <span class="dname">${dep}</span>
         </div>
       </td>
-      <td class="r" style="padding:7px 10px;color:var(--text2) !important">${fmt(dU)}</td>
-      <td class="r" style="padding:7px 10px;color:var(--red3) !important;font-weight:700">${fmt(dR)}</td>
-      <td class="r" style="padding:7px 10px;color:var(--text3) !important">${dPct}%</td>
-      <td class="r" style="padding:7px 10px;color:var(--text3) !important">~$${dInv}M</td>
-      <td style="padding:7px 10px">
-        <div style="height:5px;border-radius:3px;background:var(--red);opacity:${i<3?'0.75':'0.4'};width:${barPx}%;min-width:2px"></div>
+      <td class="r" style="padding:10px 12px;color:var(--text2) !important">${fmt(dU)}</td>
+      <td class="r" style="padding:10px 12px;color:var(--red) !important;font-weight:700">${fmt(dR)}</td>
+      <td class="r" style="padding:10px 12px;color:var(--text3) !important">${dPct}%</td>
+      <td class="r" style="padding:10px 12px;color:var(--text3) !important">~$${dInv}M</td>
+      <td style="padding:10px 12px">
+        <div style="height:6px;border-radius:3px;background:var(--red);opacity:${(i<3||curDepFilter!=='Todos')?'0.8':'0.3'};width:${barPx}%;min-width:4px"></div>
       </td>
     </tr>`;
   }).join('');
@@ -541,31 +584,37 @@ document.getElementById('invSlider').addEventListener('input', function(){
   inv = parseInt(this.value);
   document.getElementById('invVal').textContent = '$'+inv+'M';
   updateSliderUI('inv', inv, 5, 650, '#CC0000');
-  updateResult(); drawReachCurve(); drawDepBars(); buildDepTable(); buildMetrics();
+  updateViews();
 });
+
 document.getElementById('freqSlider').addEventListener('input', function(){
   freq = parseFloat(this.value);
   document.getElementById('freqVal').textContent = freq.toFixed(1)+'×';
-  updateSliderUI('freq', freq, 1, 20, '#FF9500');
-  updateResult(); drawReachCurve(); drawDepBars(); buildDepTable(); buildMetrics();
+  updateSliderUI('freq', freq, 1, 20, '#F59E0B');
+  updateViews();
 });
 
 function buildAll() {
-  buildModelTabs(); buildSegGrid(); buildMetrics(); updateResult();
-  drawReachCurve(); drawCPM(); drawDepBars(); buildDepTable();
+  buildModelTabs(); 
+  buildSegGrid(); 
+  buildDepSelect(); // Nuevo selector
+  
   const m = MODELS[curModel];
   freq = m.refFreq;
   document.getElementById('freqSlider').value = freq;
   document.getElementById('freqVal').textContent = freq.toFixed(1)+'×';
-  updateSliderUI('freq', freq, 1, 20, '#FF9500');
+  updateSliderUI('freq', freq, 1, 20, '#F59E0B');
+  
   inv = Math.round(m.refPct * 200 / 5) * 5;
   if(inv < 5) inv = 50;
   document.getElementById('invSlider').value = inv;
   document.getElementById('invVal').textContent = '$'+inv+'M';
   updateSliderUI('inv', inv, 5, 650, '#CC0000');
+  
+  updateViews();
 }
 
-window.addEventListener('resize', () => { drawReachCurve(); drawCPM(); drawDepBars(); });
+window.addEventListener('resize', () => { drawReachCurve(); drawDepBars(); });
 buildAll();
 </script>
 </body>
