@@ -6,141 +6,133 @@
 <title>Honda · Curvas de Alcance 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --red:#CC0000;--red2:#990000;--red3:#FF2D2D;
-  --bg:#0A0A0A;--bg2:#111;--bg3:#1A1A1A;--bg4:#222;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
-  --text:#fff;--text2:rgba(255,255,255,0.65);--text3:rgba(255,255,255,0.35);
-  --card:rgba(255,255,255,0.04);
+* { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --red: #CC0000; --red2: #990000; --red3: #FF2D2D;
+  --bg: #0A0A0A; --bg2: #111; --bg3: #1A1A1A; --bg4: #222;
+  --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.14);
+  --text: #fff; --text2: rgba(255,255,255,0.65); --text3: rgba(255,255,255,0.35);
+  --card: rgba(255,255,255,0.04);
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow:hidden}
-#app{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+html, body { 
+  height: 100%; 
+  background-color: var(--bg) !important; /* Blindaje para GitHub Pages */
+  color: var(--text) !important; 
+  font-family: 'DM Sans', sans-serif; 
+  overflow: hidden; 
+}
+#app { 
+  display: flex; flex-direction: column; height: 100vh; overflow: hidden; 
+  background-color: var(--bg) !important;
+}
 
 /* HEADER */
-.header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 28px;border-bottom:1px solid var(--border);
-  background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);
-  flex-shrink:0;gap:16px;flex-wrap:wrap;
+.header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 28px; border-bottom:1px solid var(--border);
+  background:rgba(10,10,10,0.95); backdrop-filter:blur(20px);
+  flex-shrink:0; gap:16px; flex-wrap:wrap;
 }
-.header-brand{display:flex;align-items:center;gap:12px}
-.header-logo{
-  width:40px;height:40px;border-radius:10px;
+.header-brand { display:flex; align-items:center; gap:12px; }
+.header-logo {
+  width:40px; height:40px; border-radius:10px;
   background:linear-gradient(135deg,var(--red),var(--red2));
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;box-shadow:0 4px 16px rgba(204,0,0,0.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; box-shadow:0 4px 16px rgba(204,0,0,0.4);
   flex-shrink:0;
 }
-.header-title{font-size:17px;font-weight:800;letter-spacing:-0.03em}
-.header-sub{font-size:11px;color:var(--text3);margin-top:1px;font-family:'DM Mono',monospace}
-.model-tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3px;flex-wrap:wrap}
-.model-tab{
-  padding:7px 16px;border-radius:9px;font-size:12px;font-weight:700;
-  cursor:pointer;border:none;background:transparent;color:var(--text3);
-  transition:all 0.2s;letter-spacing:0.01em;white-space:nowrap;
+.header-title { font-size:17px; font-weight:800; letter-spacing:-0.03em; }
+.header-sub { font-size:11px; color:var(--text3); margin-top:1px; font-family:'DM Mono',monospace; }
+.model-tabs { display:flex; gap:4px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:3px; flex-wrap:wrap; }
+.model-tab {
+  padding:7px 16px; border-radius:9px; font-size:12px; font-weight:700;
+  cursor:pointer; border:none; background:transparent; color:var(--text3);
+  transition:all 0.2s; letter-spacing:0.01em; white-space:nowrap;
 }
-.model-tab.active{background:var(--red);color:#fff;box-shadow:0 2px 12px rgba(204,0,0,0.4)}
+.model-tab.active { background:var(--red); color:#fff; box-shadow:0 2px 12px rgba(204,0,0,0.4); }
 
 /* MAIN LAYOUT */
-.main{display:flex;flex:1;overflow:hidden;min-height:0}
-.sidebar{
-  width:300px;flex-shrink:0;border-right:1px solid var(--border);
-  display:flex;flex-direction:column;overflow:hidden;
+.main { display:flex; flex:1; overflow:hidden; min-height:0; }
+.sidebar {
+  width:300px; flex-shrink:0; border-right:1px solid var(--border);
+  display:flex; flex-direction:column; overflow:hidden;
 }
-/* El sidebar scrollea completo */
-.sidebar-scroll{
-  flex:1;overflow-y:auto;overflow-x:hidden;
-  display:flex;flex-direction:column;
+.sidebar-scroll {
+  flex:1; overflow-y:auto; overflow-x:hidden; display:flex; flex-direction:column;
 }
-.sidebar-scroll::-webkit-scrollbar{width:3px}
-.sidebar-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
-.content{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0}
-.content::-webkit-scrollbar{width:4px}
-.content::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:4px}
-.content::-webkit-scrollbar-track{background:transparent}
+.sidebar-scroll::-webkit-scrollbar { width:3px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.12); border-radius:3px; }
+.content { flex:1; overflow-y:auto; overflow-x:hidden; min-height:0; }
+.content::-webkit-scrollbar { width:4px; }
+.content::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px; }
 
 /* SIDEBAR */
-.sidebar-section{padding:16px 18px;border-bottom:1px solid var(--border);flex-shrink:0}
-.sidebar-section.cpm-section{flex-shrink:0;padding:16px 18px}
-.section-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;font-family:'DM Mono',monospace}
-.seg-grid{display:flex;flex-direction:column;gap:4px}
-.seg-btn{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:7px 11px;border-radius:9px;border:1px solid var(--border);
-  background:transparent;color:var(--text2);font-size:12px;font-weight:600;
-  cursor:pointer;transition:all 0.15s;text-align:left;width:100%;
+.sidebar-section { padding:16px 18px; border-bottom:1px solid var(--border); flex-shrink:0; }
+.section-label { font-size:10px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; font-family:'DM Mono',monospace; }
+.seg-grid { display:flex; flex-direction:column; gap:4px; }
+.seg-btn {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:7px 11px; border-radius:9px; border:1px solid var(--border);
+  background:transparent; color:var(--text2); font-size:12px; font-weight:600;
+  cursor:pointer; transition:all 0.15s; text-align:left; width:100%;
 }
-.seg-btn:hover{background:var(--card);border-color:var(--border2)}
-.seg-btn.active{background:rgba(204,0,0,0.12);border-color:rgba(204,0,0,0.35);color:#fff}
-.seg-btn .seg-univ{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;flex-shrink:0;margin-left:8px}
-.seg-btn.active .seg-univ{color:rgba(204,0,0,0.7)}
+.seg-btn:hover { background:var(--card); border-color:var(--border2); }
+.seg-btn.active { background:rgba(204,0,0,0.12); border-color:rgba(204,0,0,0.35); color:#fff; }
+.seg-btn .seg-univ { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; flex-shrink:0; margin-left:8px; }
 
 /* SLIDERS */
-.slider-block{margin-bottom:16px}
-.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.slider-label{font-size:13px;font-weight:600;color:var(--text2)}
-.slider-val{font-size:16px;font-weight:800;font-family:'DM Mono',monospace;color:var(--red3)}
-.slider-track{position:relative;height:28px;display:flex;align-items:center}
-.slider-bg{position:absolute;left:0;right:0;height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
-.slider-fill{height:100%;background:var(--red);border-radius:2px;transition:width 0.05s}
-.slider-input{position:absolute;left:0;right:0;width:100%;opacity:0;height:28px;cursor:pointer;margin:0}
-.slider-thumb{position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;border:2.5px solid var(--red);box-shadow:0 2px 8px rgba(0,0,0,0.4);pointer-events:none;transition:left 0.05s}
-.slider-minmax{display:flex;justify-content:space-between;margin-top:3px}
-.slider-minmax span{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace}
+.slider-block { margin-bottom:16px; }
+.slider-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:9px; }
+.slider-label { font-size:13px; font-weight:600; color:var(--text2); }
+.slider-val { font-size:16px; font-weight:800; font-family:'DM Mono',monospace; color:var(--red3); }
+.slider-track { position:relative; height:28px; display:flex; align-items:center; }
+.slider-bg { position:absolute; left:0; right:0; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; overflow:hidden; }
+.slider-fill { height:100%; background:var(--red); border-radius:2px; transition:width 0.05s; }
+.slider-input { position:absolute; left:0; right:0; width:100%; opacity:0; height:28px; cursor:pointer; margin:0; }
+.slider-thumb { position:absolute; width:20px; height:20px; border-radius:50%; background:#fff; border:2.5px solid var(--red); box-shadow:0 2px 8px rgba(0,0,0,0.4); pointer-events:none; transition:left 0.05s; }
+.slider-minmax { display:flex; justify-content:space-between; margin-top:3px; }
+.slider-minmax span { font-size:10px; color:var(--text3); font-family:'DM Mono',monospace; }
 
 /* RESULT BOX */
-.result-box{
+.result-box {
   background:linear-gradient(135deg,rgba(204,0,0,0.15),rgba(153,0,0,0.08));
-  border:1px solid rgba(204,0,0,0.25);border-radius:14px;
-  padding:16px;text-align:center;margin-top:4px;
+  border:1px solid rgba(204,0,0,0.25); border-radius:14px;
+  padding:16px; text-align:center; margin-top:4px;
 }
-.result-label{font-size:11px;color:rgba(204,0,0,0.7);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;font-family:'DM Mono',monospace}
-.result-number{font-size:30px;font-weight:800;color:var(--red3);letter-spacing:-0.03em;line-height:1.1}
-.result-sub{font-size:11px;color:var(--text3);margin-top:5px}
-.result-pct{font-size:13px;font-weight:700;color:var(--red);margin-top:3px}
+.result-label { font-size:11px; color:rgba(204,0,0,0.7); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px; font-family:'DM Mono',monospace; }
+.result-number { font-size:30px; font-weight:800; color:var(--red3); letter-spacing:-0.03em; line-height:1.1; }
+.result-sub { font-size:11px; color:var(--text3); margin-top:5px; }
+.result-pct { font-size:13px; font-weight:700; color:var(--red); margin-top:3px; }
 
 /* CONTENT PANELS */
-.panels{padding:20px;display:flex;flex-direction:column;gap:16px}
-.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
-.panel-title{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;font-family:'DM Mono',monospace}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.metric{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
-.metric-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:'DM Mono',monospace;margin-bottom:5px}
-.metric-val{font-size:20px;font-weight:800;letter-spacing:-0.02em;line-height:1}
-.metric-sub{font-size:11px;color:var(--text3);margin-top:4px}
+.panels { padding:20px; display:flex; flex-direction:column; gap:16px; }
+.panel { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
+.panel-title { font-size:10px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px; font-family:'DM Mono',monospace; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.metric { background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+.metric-label { font-size:10px; color:var(--text3); text-transform:uppercase; letter-spacing:0.08em; font-family:'DM Mono',monospace; margin-bottom:5px; }
+.metric-val { font-size:20px; font-weight:800; letter-spacing:-0.02em; line-height:1; }
+.metric-sub { font-size:11px; color:var(--text3); margin-top:4px; }
 
-/* TABLE */
-.dep-table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
-.dep-table th{text-align:left;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;padding:7px 10px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace}
-.dep-table th.r{text-align:right}
-.dep-table th:nth-child(1){width:26%}
-.dep-table th:nth-child(2){width:17%}
-.dep-table th:nth-child(3){width:17%}
-.dep-table th:nth-child(4){width:11%}
-.dep-table th:nth-child(5){width:12%}
-.dep-table th:nth-child(6){width:17%}
-.dep-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);transition:background 0.1s;vertical-align:middle}
-.dep-table td.r{text-align:right;font-family:'DM Mono',monospace;font-size:11px}
-.dep-table tr:hover td{background:rgba(255,255,255,0.025)}
-.dep-name{display:flex;align-items:center;gap:6px;font-weight:700;color:#fff}
-.dep-name .medal{font-size:12px;flex-shrink:0}
-.dep-name .dname{font-size:12px;font-weight:700;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.bar-cell{display:flex;align-items:center;padding:0}
-.bar{height:5px;border-radius:3px;background:var(--red);opacity:0.65;min-width:2px}
+/* TABLE OVERRIDES (Protección contra estilos oscuros de GitHub) */
+.dep-table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background-color: transparent !important; }
+.dep-table tr { background-color: transparent !important; }
+.dep-table tr:nth-child(even), .dep-table tr:nth-child(odd) { background-color: transparent !important; }
+.dep-table th { text-align:left; font-size:9px; font-weight:700; color:var(--text3) !important; text-transform:uppercase; padding:7px 10px; border-bottom:1px solid var(--border) !important; background-color: transparent !important; }
+.dep-table th.r { text-align:right; }
+.dep-table td { padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.04) !important; color:var(--text2) !important; background-color: transparent !important; vertical-align:middle; border-top: none !important; }
+.dep-table td.r { text-align:right; font-family:'DM Mono',monospace; font-size:11px; }
+.dep-table tr:hover td { background-color:rgba(255,255,255,0.025) !important; }
+.dep-name { display:flex; align-items:center; gap:6px; font-weight:700; }
+.dep-name .medal { font-size:12px; flex-shrink:0; }
+.dep-name .dname { font-size:12px; font-weight:700; color:var(--text) !important; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
-/* CANVAS */
-canvas{display:block;width:100%!important}
-
-/* FOOTER NOTE */
-.footnote{font-size:10px;color:var(--text3);margin-top:10px;font-family:'DM Mono',monospace;line-height:1.5}
+canvas { display:block; width:100%!important; }
+.footnote { font-size:10px; color:var(--text3); margin-top:10px; font-family:'DM Mono',monospace; line-height:1.5; }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp 0.3s ease both}
-
-/* scrollbar content */
-.content::-webkit-scrollbar-track{background:transparent}
+.fade-up { animation:fadeUp 0.3s ease both; }
 </style>
 </head>
 <body>
@@ -195,17 +187,15 @@ canvas{display:block;width:100%!important}
           <div class="result-sub" id="resultSub">selecciona un segmento</div>
         </div>
       </div>
-      <div class="sidebar-section cpm-section">
+      <div class="sidebar-section">
         <div class="section-label">CPM por formato</div>
         <canvas id="cpmCanvas" height="220"></canvas>
       </div>
-      </div><!-- end sidebar-scroll -->
+      </div>
     </div>
     <div class="content">
       <div class="panels">
-        <!-- metric cards -->
         <div class="grid4" id="metricCards"></div>
-        <!-- curve + deps -->
         <div class="grid2">
           <div class="panel">
             <div class="panel-title" id="curveTitle">Curva de Alcance</div>
@@ -218,18 +208,17 @@ canvas{display:block;width:100%!important}
             <div class="footnote" id="depLegend"></div>
           </div>
         </div>
-        <!-- dep table -->
         <div class="panel">
           <div class="panel-title">Detalle por departamento</div>
           <table class="dep-table">
             <thead>
               <tr>
-                <th>Departamento</th>
-                <th class="r">Universo seg.</th>
-                <th class="r">Alcance est.</th>
-                <th class="r">% Alcance</th>
-                <th class="r">Inv. ref.</th>
-                <th></th>
+                <th style="width:26%">Departamento</th>
+                <th class="r" style="width:17%">Universo seg.</th>
+                <th class="r" style="width:17%">Alcance est.</th>
+                <th class="r" style="width:11%">% Alcance</th>
+                <th class="r" style="width:12%">Inv. ref.</th>
+                <th style="width:17%"></th>
               </tr>
             </thead>
             <tbody id="depTableBody"></tbody>
@@ -242,7 +231,6 @@ canvas{display:block;width:100%!important}
 </div>
 
 <script>
-// ─── DATA ────────────────────────────────────────────────────────────────────
 const MODELS = {
   CB100F:{
     label:'CB100F',color:'#CC0000',
@@ -281,15 +269,12 @@ const MODELS = {
   }
 };
 
-// ─── STATE ───────────────────────────────────────────────────────────────────
 let curModel = 'CB100F';
 let curSeg   = 'Regiones';
-let inv      = 100;  // millones
+let inv      = 100;
 let freq     = 5.0;
 
-// ─── UTILS ───────────────────────────────────────────────────────────────────
 const fmt  = n => new Intl.NumberFormat('es-CO').format(Math.round(n));
-const fmtM = n => '$' + n + 'M';
 
 function calcReach(invM, univ, avgCPM, fr) {
   const imps = (invM * 1e6) / avgCPM * 1000;
@@ -303,7 +288,6 @@ function getAvgCPM(m) {
   return v.reduce((a,b)=>a+b,0)/v.length;
 }
 
-// ─── BUILD MODEL TABS ────────────────────────────────────────────────────────
 function buildModelTabs() {
   const container = document.getElementById('modelTabs');
   container.innerHTML = '';
@@ -316,7 +300,6 @@ function buildModelTabs() {
   });
 }
 
-// ─── BUILD SEG GRID ──────────────────────────────────────────────────────────
 function buildSegGrid() {
   const m = MODELS[curModel];
   const container = document.getElementById('segGrid');
@@ -330,7 +313,6 @@ function buildSegGrid() {
   });
 }
 
-// ─── BUILD METRIC CARDS ──────────────────────────────────────────────────────
 function buildMetrics() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
@@ -341,10 +323,10 @@ function buildMetrics() {
   const pct   = (reach/univ*100).toFixed(1);
 
   const cards = [
-    {label:'Universo',       val:fmt(univ),                                     sub:seg,                  col:'#CC0000'},
-    {label:'CPM promedio',   val:'$'+Math.round(avg).toLocaleString('es-CO'),   sub:'pesos por 1.000 imp.',col:'#CC0000'},
-    {label:'Alcance estimado',val:pct+'%',                                       sub:fmt(Math.round(reach))+' personas', col: reach/univ>0.7?'#34C759':'#FF6B6B'},
-    {label:'Frecuencia ref.',val:m.refFreq+'×',                                  sub:'benchmark campaña',  col:'#FF9500'},
+    {label:'Universo', val:fmt(univ), sub:seg, col:'#CC0000'},
+    {label:'CPM promedio', val:'$'+Math.round(avg).toLocaleString('es-CO'), sub:'pesos por 1.000 imp.',col:'#CC0000'},
+    {label:'Alcance estimado',val:pct+'%', sub:fmt(Math.round(reach))+' personas', col: reach/univ>0.7?'#34C759':'#FF6B6B'},
+    {label:'Frecuencia ref.',val:m.refFreq+'×', sub:'benchmark campaña', col:'#FF9500'},
   ];
   document.getElementById('metricCards').innerHTML = cards.map(c=>`
     <div class="metric fade-up">
@@ -354,7 +336,6 @@ function buildMetrics() {
     </div>`).join('');
 }
 
-// ─── UPDATE RESULT BOX ───────────────────────────────────────────────────────
 function updateResult() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
@@ -368,7 +349,6 @@ function updateResult() {
   document.getElementById('resultSub').textContent  = 'con $'+inv+'M COP · frec. '+freq.toFixed(1)+'× · '+seg;
 }
 
-// ─── DRAW REACH CURVE ────────────────────────────────────────────────────────
 function drawReachCurve() {
   const cv  = document.getElementById('reachCanvas');
   const m   = MODELS[curModel];
@@ -382,7 +362,6 @@ function drawReachCurve() {
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
 
-  // grid lines
   ctx.strokeStyle = 'rgba(255,255,255,0.06)';
   ctx.lineWidth = 1;
   for(let i=1;i<5;i++){
@@ -398,7 +377,6 @@ function drawReachCurve() {
     pts.push({ x: PAD + (i/100)*(W-PAD*2), y: H-PAD - (r/univ)*(H-PAD*2) });
   }
 
-  // gradient fill
   const grad = ctx.createLinearGradient(0,0,0,H);
   grad.addColorStop(0,'rgba(204,0,0,0.18)');
   grad.addColorStop(1,'rgba(204,0,0,0.01)');
@@ -407,7 +385,6 @@ function drawReachCurve() {
   ctx.lineTo(W-PAD, H); ctx.closePath();
   ctx.fillStyle = grad; ctx.fill();
 
-  // curve
   ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
   for(let i=1;i<pts.length-1;i++){
     const mx = (pts[i].x+pts[i+1].x)/2, my = (pts[i].y+pts[i+1].y)/2;
@@ -415,7 +392,6 @@ function drawReachCurve() {
   }
   ctx.strokeStyle = '#CC0000'; ctx.lineWidth = 2.5; ctx.stroke();
 
-  // current investment marker
   const cx = PAD + (inv/maxInv)*(W-PAD*2);
   const reach = calcReach(inv, univ, avg, freq);
   const cy = H - PAD - (reach/univ)*(H-PAD*2);
@@ -425,20 +401,17 @@ function drawReachCurve() {
   ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=1.5; ctx.stroke();
   ctx.setLineDash([]);
 
-  // glow dot
   ctx.beginPath(); ctx.arc(cx,cy,10,0,Math.PI*2);
   ctx.fillStyle='rgba(204,0,0,0.2)'; ctx.fill();
   ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2);
   ctx.fillStyle='#FF2D2D'; ctx.fill();
 
-  // x-axis labels
   ctx.fillStyle='rgba(255,255,255,0.3)'; ctx.font='9px DM Mono, monospace'; ctx.textAlign='center';
   [0.25,0.5,0.75,1].forEach(p=>{
     const v=Math.round(maxInv*p);
     ctx.fillText('$'+v+'M', PAD+(p*(W-PAD*2)), H-1);
   });
 
-  // y-axis labels
   ctx.textAlign='left';
   [0.25,0.5,0.75,1].forEach(p=>{
     const v=Math.round(univ*p);
@@ -447,10 +420,9 @@ function drawReachCurve() {
   });
 
   document.getElementById('curveTitle').textContent = `Curva de alcance · ${m.label} · ${seg}`;
-  document.getElementById('curveLegend').textContent = `Universo: ${fmt(univ)} · CPM promedio: $${Math.round(avg).toLocaleString('es-CO')} · Punto: $${inv}M → ${(reach/univ*100).toFixed(1)}%`;
+  document.getElementById('curveLegend').textContent = `Universo: ${fmt(univ)} · CPM: $${Math.round(avg).toLocaleString('es-CO')} · Pto: $${inv}M → ${(reach/univ*100).toFixed(1)}%`;
 }
 
-// ─── DRAW CPM CHART ──────────────────────────────────────────────────────────
 function drawCPM() {
   const cv  = document.getElementById('cpmCanvas');
   const m   = MODELS[curModel];
@@ -475,14 +447,12 @@ function drawCPM() {
     ctx.fillStyle = v < 2000 ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.5)';
     ctx.font = `${Math.max(9,Math.min(11,bH*0.7))}px DM Sans, sans-serif`;
     ctx.textAlign = 'left';
-    const priceStr = '$' + v.toLocaleString('es-CO');
     ctx.fillText(lbl, bW + 5, y + bH*0.73);
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    ctx.fillText(priceStr, bW + 5 + ctx.measureText(lbl).width + 5, y + bH*0.73);
+    ctx.fillText('$' + v.toLocaleString('es-CO'), bW + 5 + ctx.measureText(lbl).width + 5, y + bH*0.73);
   });
 }
 
-// ─── DRAW DEP BARS ───────────────────────────────────────────────────────────
 function drawDepBars() {
   const cv  = document.getElementById('depCanvas');
   const m   = MODELS[curModel];
@@ -497,7 +467,8 @@ function drawDepBars() {
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
 
-  const deps   = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]).slice(0,15);
+  // ¡Arreglo! Ahora pinta TODAS las regiones en lugar de limitar con .slice(0, 15)
+  const deps   = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
   const maxR   = reach * deps[0][1];
   const bH     = Math.floor((H-8)/deps.length) - 2;
 
@@ -512,17 +483,15 @@ function drawDepBars() {
     ctx.fillStyle = i<3?'rgba(255,255,255,0.85)':'rgba(255,255,255,0.5)';
     ctx.font = `${Math.max(9,Math.min(11,bH*0.7))}px DM Sans, sans-serif`;
     ctx.textAlign = 'left';
-    const rStr = fmt(Math.round(r));
     ctx.fillText(dep, bW+5, y+bH*0.73);
     ctx.fillStyle='rgba(255,255,255,0.3)';
-    ctx.fillText(rStr, bW+5+ctx.measureText(dep).width+5, y+bH*0.73);
+    ctx.fillText(fmt(Math.round(r)), bW+5+ctx.measureText(dep).width+5, y+bH*0.73);
   });
 
-  document.getElementById('depBarTitle').textContent = `Top departamentos · $${inv}M · ${seg}`;
-  document.getElementById('depLegend').textContent   = `Alcance total estimado: ${fmt(Math.round(reach))} personas. Distribución según ventas reales por dpto.`;
+  document.getElementById('depBarTitle').textContent = `Top Departamentos · $${inv}M · ${seg}`;
+  document.getElementById('depLegend').textContent   = `Alcance total estimado: ${fmt(Math.round(reach))} personas.`;
 }
 
-// ─── BUILD DEP TABLE ─────────────────────────────────────────────────────────
 function buildDepTable() {
   const m    = MODELS[curModel];
   const segs = Object.keys(m.universos);
@@ -530,11 +499,10 @@ function buildDepTable() {
   const univ = m.universos[seg];
   const avg  = getAvgCPM(m);
   const reach= calcReach(inv, univ, avg, freq);
-
-  // Show ALL departments sorted by share
   const sorted = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
   const maxShare = sorted[0][1];
 
+  // ¡Arreglo! Se incluyeron variables de color por defecto en el style para que GitHub no las sobrescriba en blanco.
   document.getElementById('depTableBody').innerHTML = sorted.map(([dep,share],i)=>{
     const dU   = Math.round(univ * share);
     const dR   = Math.round(reach * share);
@@ -542,26 +510,25 @@ function buildDepTable() {
     const dInv = Math.round(inv * share);
     const barPx = Math.max(2, Math.round((share/maxShare)*100));
     const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-    const rowBg = i < 3 ? 'rgba(204,0,0,0.04)' : 'transparent';
-    return `<tr style="background:${rowBg}">
+    const rowBg = i < 3 ? 'rgba(204,0,0,0.06)' : 'transparent';
+    return `<tr style="background:${rowBg} !important">
       <td style="padding:7px 10px">
         <div class="dep-name">
           ${medal ? `<span class="medal">${medal}</span>` : `<span style="display:inline-block;width:18px;text-align:center;font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">${i+1}</span>`}
-          <span class="dname">${dep}</span>
+          <span class="dname" style="color:var(--text) !important">${dep}</span>
         </div>
       </td>
-      <td class="r" style="padding:7px 10px">${fmt(dU)}</td>
-      <td class="r" style="padding:7px 10px;color:#FF6B6B;font-weight:700">${fmt(dR)}</td>
-      <td class="r" style="padding:7px 10px;color:rgba(255,255,255,0.55)">${dPct}%</td>
-      <td class="r" style="padding:7px 10px;color:rgba(255,255,255,0.4)">~$${dInv}M</td>
+      <td class="r" style="padding:7px 10px;color:var(--text2) !important">${fmt(dU)}</td>
+      <td class="r" style="padding:7px 10px;color:var(--red3) !important;font-weight:700">${fmt(dR)}</td>
+      <td class="r" style="padding:7px 10px;color:var(--text3) !important">${dPct}%</td>
+      <td class="r" style="padding:7px 10px;color:var(--text3) !important">~$${dInv}M</td>
       <td style="padding:7px 10px">
-        <div style="height:5px;border-radius:3px;background:var(--red);opacity:${i<3?'0.75':'0.4'};width:${barPx}px;min-width:2px"></div>
+        <div style="height:5px;border-radius:3px;background:var(--red);opacity:${i<3?'0.75':'0.4'};width:${barPx}%;min-width:2px"></div>
       </td>
     </tr>`;
   }).join('');
 }
 
-// ─── SLIDERS ─────────────────────────────────────────────────────────────────
 function updateSliderUI(id, val, min, max, fillColor) {
   const pct = (val-min)/(max-min)*100;
   document.getElementById(id+'Fill').style.width  = pct+'%';
@@ -583,23 +550,14 @@ document.getElementById('freqSlider').addEventListener('input', function(){
   updateResult(); drawReachCurve(); drawDepBars(); buildDepTable(); buildMetrics();
 });
 
-// ─── MAIN BUILD ──────────────────────────────────────────────────────────────
 function buildAll() {
-  buildModelTabs();
-  buildSegGrid();
-  buildMetrics();
-  updateResult();
-  drawReachCurve();
-  drawCPM();
-  drawDepBars();
-  buildDepTable();
-  // reset sliders to ref freq
+  buildModelTabs(); buildSegGrid(); buildMetrics(); updateResult();
+  drawReachCurve(); drawCPM(); drawDepBars(); buildDepTable();
   const m = MODELS[curModel];
   freq = m.refFreq;
   document.getElementById('freqSlider').value = freq;
   document.getElementById('freqVal').textContent = freq.toFixed(1)+'×';
   updateSliderUI('freq', freq, 1, 20, '#FF9500');
-  // reset inv to sensible default
   inv = Math.round(m.refPct * 200 / 5) * 5;
   if(inv < 5) inv = 50;
   document.getElementById('invSlider').value = inv;
@@ -607,10 +565,7 @@ function buildAll() {
   updateSliderUI('inv', inv, 5, 650, '#CC0000');
 }
 
-// Redraw canvases on resize
 window.addEventListener('resize', () => { drawReachCurve(); drawCPM(); drawDepBars(); });
-
-// Init
 buildAll();
 </script>
 </body>
