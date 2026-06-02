@@ -22,7 +22,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 28px;border-bottom:1px solid var(--border);
   background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);
-  flex-shrink:0;gap:16px;
+  flex-shrink:0;gap:16px;flex-wrap:wrap;
 }
 .header-brand{display:flex;align-items:center;gap:12px}
 .header-logo{
@@ -34,7 +34,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 }
 .header-title{font-size:17px;font-weight:800;letter-spacing:-0.03em}
 .header-sub{font-size:11px;color:var(--text3);margin-top:1px;font-family:'DM Mono',monospace}
-.model-tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3px}
+.model-tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3px;flex-wrap:wrap}
 .model-tab{
   padding:7px 16px;border-radius:9px;font-size:12px;font-weight:700;
   cursor:pointer;border:none;background:transparent;color:var(--text3);
@@ -43,28 +43,37 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .model-tab.active{background:var(--red);color:#fff;box-shadow:0 2px 12px rgba(204,0,0,0.4)}
 
 /* MAIN LAYOUT */
-.main{display:flex;flex:1;overflow:hidden}
+.main{display:flex;flex:1;overflow:hidden;min-height:0}
 .sidebar{
   width:300px;flex-shrink:0;border-right:1px solid var(--border);
   display:flex;flex-direction:column;overflow:hidden;
 }
-.content{flex:1;overflow-y:auto;overflow-x:hidden}
+/* El sidebar scrollea completo */
+.sidebar-scroll{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  display:flex;flex-direction:column;
+}
+.sidebar-scroll::-webkit-scrollbar{width:3px}
+.sidebar-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:3px}
+.content{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0}
 .content::-webkit-scrollbar{width:4px}
 .content::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:4px}
+.content::-webkit-scrollbar-track{background:transparent}
 
 /* SIDEBAR */
-.sidebar-section{padding:18px 20px;border-bottom:1px solid var(--border)}
-.section-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-family:'DM Mono',monospace}
-.seg-grid{display:flex;flex-direction:column;gap:5px}
+.sidebar-section{padding:16px 18px;border-bottom:1px solid var(--border);flex-shrink:0}
+.sidebar-section.cpm-section{flex-shrink:0;padding:16px 18px}
+.section-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;font-family:'DM Mono',monospace}
+.seg-grid{display:flex;flex-direction:column;gap:4px}
 .seg-btn{
   display:flex;justify-content:space-between;align-items:center;
-  padding:8px 12px;border-radius:9px;border:1px solid var(--border);
+  padding:7px 11px;border-radius:9px;border:1px solid var(--border);
   background:transparent;color:var(--text2);font-size:12px;font-weight:600;
-  cursor:pointer;transition:all 0.15s;text-align:left;
+  cursor:pointer;transition:all 0.15s;text-align:left;width:100%;
 }
 .seg-btn:hover{background:var(--card);border-color:var(--border2)}
 .seg-btn.active{background:rgba(204,0,0,0.12);border-color:rgba(204,0,0,0.35);color:#fff}
-.seg-btn .seg-univ{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace}
+.seg-btn .seg-univ{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;flex-shrink:0;margin-left:8px}
 .seg-btn.active .seg-univ{color:rgba(204,0,0,0.7)}
 
 /* SLIDERS */
@@ -103,15 +112,23 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .metric-sub{font-size:11px;color:var(--text3);margin-top:4px}
 
 /* TABLE */
-.dep-table{width:100%;border-collapse:collapse;font-size:12px}
-.dep-table th{text-align:left;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;padding:6px 10px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace}
+.dep-table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.dep-table th{text-align:left;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;padding:7px 10px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace}
 .dep-table th.r{text-align:right}
-.dep-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);transition:background 0.1s}
+.dep-table th:nth-child(1){width:26%}
+.dep-table th:nth-child(2){width:17%}
+.dep-table th:nth-child(3){width:17%}
+.dep-table th:nth-child(4){width:11%}
+.dep-table th:nth-child(5){width:12%}
+.dep-table th:nth-child(6){width:17%}
+.dep-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text2);transition:background 0.1s;vertical-align:middle}
 .dep-table td.r{text-align:right;font-family:'DM Mono',monospace;font-size:11px}
-.dep-table tr:hover td{background:rgba(255,255,255,0.02)}
-.dep-table .dep-name{font-weight:600;color:#fff;display:flex;align-items:center;gap:7px}
-.bar-cell{display:flex;align-items:center}
-.bar{height:5px;border-radius:3px;background:var(--red);opacity:0.6;min-width:2px;transition:width 0.3s}
+.dep-table tr:hover td{background:rgba(255,255,255,0.025)}
+.dep-name{display:flex;align-items:center;gap:6px;font-weight:700;color:#fff}
+.dep-name .medal{font-size:12px;flex-shrink:0}
+.dep-name .dname{font-size:12px;font-weight:700;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-cell{display:flex;align-items:center;padding:0}
+.bar{height:5px;border-radius:3px;background:var(--red);opacity:0.65;min-width:2px}
 
 /* CANVAS */
 canvas{display:block;width:100%!important}
@@ -140,12 +157,13 @@ canvas{display:block;width:100%!important}
   </div>
   <div class="main">
     <div class="sidebar">
-      <div class="sidebar-section">
-        <div class="section-label">Segmento Meta</div>
-        <div class="seg-grid" id="segGrid"></div>
-      </div>
-      <div class="sidebar-section">
-        <div class="section-label">Simulador</div>
+      <div class="sidebar-scroll">
+        <div class="sidebar-section">
+          <div class="section-label">Segmento Meta</div>
+          <div class="seg-grid" id="segGrid"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="section-label">Simulador</div>
         <div class="slider-block">
           <div class="slider-header">
             <span class="slider-label">Inversión</span>
@@ -177,10 +195,11 @@ canvas{display:block;width:100%!important}
           <div class="result-sub" id="resultSub">selecciona un segmento</div>
         </div>
       </div>
-      <div class="sidebar-section" style="flex:1;overflow-y:auto">
+      <div class="sidebar-section cpm-section">
         <div class="section-label">CPM por formato</div>
         <canvas id="cpmCanvas" height="220"></canvas>
       </div>
+      </div><!-- end sidebar-scroll -->
     </div>
     <div class="content">
       <div class="panels">
@@ -195,7 +214,7 @@ canvas{display:block;width:100%!important}
           </div>
           <div class="panel">
             <div class="panel-title" id="depBarTitle">Top Departamentos</div>
-            <canvas id="depCanvas" height="200"></canvas>
+            <canvas id="depCanvas" height="260"></canvas>
             <div class="footnote" id="depLegend"></div>
           </div>
         </div>
@@ -478,14 +497,14 @@ function drawDepBars() {
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
 
-  const deps   = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  const deps   = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]).slice(0,15);
   const maxR   = reach * deps[0][1];
-  const bH     = Math.floor((H-8)/deps.length) - 3;
+  const bH     = Math.floor((H-8)/deps.length) - 2;
 
   deps.forEach(([dep,share],i) => {
     const r  = reach * share;
-    const bW = Math.max(3,(r/maxR)*(W*0.5));
-    const y  = 4 + i*(bH+3);
+    const bW = Math.max(3,(r/maxR)*(W*0.40));
+    const y  = 4 + i*(bH+2);
     const alpha = i<3 ? 0.8 : 0.4;
     ctx.fillStyle = `rgba(204,0,0,${alpha})`;
     if(ctx.roundRect) ctx.roundRect(0,y,bW,bH,3); else ctx.rect(0,y,bW,bH);
@@ -512,24 +531,31 @@ function buildDepTable() {
   const avg  = getAvgCPM(m);
   const reach= calcReach(inv, univ, avg, freq);
 
-  const sorted = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]).slice(0,15);
+  // Show ALL departments sorted by share
+  const sorted = Object.entries(m.deps).sort((a,b)=>b[1]-a[1]);
   const maxShare = sorted[0][1];
 
   document.getElementById('depTableBody').innerHTML = sorted.map(([dep,share],i)=>{
     const dU   = Math.round(univ * share);
     const dR   = Math.round(reach * share);
-    const dPct = (dR/dU*100).toFixed(0);
+    const dPct = dU > 0 ? (dR/dU*100).toFixed(0) : '0';
     const dInv = Math.round(inv * share);
-    const barW = Math.round((share/maxShare)*90);
+    const barPx = Math.max(2, Math.round((share/maxShare)*100));
     const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
-    return `<tr>
-      <td><div class="dep-name">${medal?`<span style="font-size:13px">${medal}</span>`:''}<span>${dep}</span></div></td>
-      <td class="r">${fmt(dU)}</td>
-      <td class="r" style="color:#FF6B6B;font-weight:700">${fmt(dR)}</td>
-      <td class="r" style="color:rgba(255,255,255,0.55)">${dPct}%</td>
-      <td class="r" style="color:rgba(255,255,255,0.4)">~$${dInv}M</td>
-      <td style="padding:8px 10px 8px 4px;min-width:100px">
-        <div class="bar-cell"><div class="bar" style="width:${barW}px"></div></div>
+    const rowBg = i < 3 ? 'rgba(204,0,0,0.04)' : 'transparent';
+    return `<tr style="background:${rowBg}">
+      <td style="padding:7px 10px">
+        <div class="dep-name">
+          ${medal ? `<span class="medal">${medal}</span>` : `<span style="display:inline-block;width:18px;text-align:center;font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">${i+1}</span>`}
+          <span class="dname">${dep}</span>
+        </div>
+      </td>
+      <td class="r" style="padding:7px 10px">${fmt(dU)}</td>
+      <td class="r" style="padding:7px 10px;color:#FF6B6B;font-weight:700">${fmt(dR)}</td>
+      <td class="r" style="padding:7px 10px;color:rgba(255,255,255,0.55)">${dPct}%</td>
+      <td class="r" style="padding:7px 10px;color:rgba(255,255,255,0.4)">~$${dInv}M</td>
+      <td style="padding:7px 10px">
+        <div style="height:5px;border-radius:3px;background:var(--red);opacity:${i<3?'0.75':'0.4'};width:${barPx}px;min-width:2px"></div>
       </td>
     </tr>`;
   }).join('');
