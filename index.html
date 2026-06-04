@@ -145,7 +145,7 @@ canvas { display:block; width:100%!important; }
       <div class="header-logo">🏍</div>
       <div>
         <div class="header-title">Honda · Curvas de Alcance</div>
-        <div class="header-sub">CAMPAÑA 2026 · META ADS · DATA REAL DEL FLOW</div>
+        <div class="header-sub">CAMPAÑA 2026 · META ADS · BASE ESTANDARIZADA 10M</div>
       </div>
     </div>
     <div class="model-tabs" id="modelTabs"></div>
@@ -243,35 +243,35 @@ canvas { display:block; width:100%!important; }
 const MODELS = {
   CB100F:{
     label:'CB100F',
-    universos:{Nacional:14500000,Regiones:11350000,Domiciliarios:4600000,Independientes:9950000,Mototaxistas:1464800,Younger:5952335},
+    universos:{Nacional:10000000,Regiones:10000000,Domiciliarios:2600000,Independientes:7950000,Mototaxistas:464800,Younger:3952335},
     cpm:{'FB Video Ad':1266,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Rappi In App':30400,'Yango Display':130000,'LeadGenios':25000},
     refPct:0.85,refFreq:5.17,segDefault:'Regiones',
     deps:{'Valle del Cauca':0.1198,'Antioquia':0.1159,'Bolívar':0.0857,'Santander':0.0798,'Cundinamarca':0.0798,'Córdoba':0.0682,'Atlántico':0.0545,'Nariño':0.0516,'Putumayo':0.0370,'Huila':0.0351,'Tolima':0.0341,'Cauca':0.0331,'Cesar':0.0302,'Nte. Santander':0.0282,'Sucre':0.0273,'Magdalena':0.0263,'Caquetá':0.0234,'Meta':0.0136,'Caldas':0.0097,'Risaralda':0.0078}
   },
   CB125F:{
     label:'CB125F',
-    universos:{Nacional:13350000,Regiones:12800000},
+    universos:{Nacional:10000000,Regiones:10000000},
     cpm:{'FB Video Dep.':1369,'FB Video Nac.':786,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Rappi In App':30400},
     refPct:0.83,refFreq:10.41,segDefault:'Regiones',
     deps:{'Valle del Cauca':0.1444,'Antioquia':0.1028,'Cundinamarca':0.0992,'Santander':0.0627,'Tolima':0.0545,'Nte. Santander':0.0545,'Cauca':0.0488,'Huila':0.0473,'Nariño':0.0462,'Bolívar':0.0416,'Córdoba':0.0401,'Atlántico':0.0360,'Putumayo':0.0288,'Caquetá':0.0267,'Meta':0.0221,'Risaralda':0.0211,'Cesar':0.0185,'Sucre':0.0185,'Magdalena':0.0175,'Casanare':0.0170}
   },
   XR150L:{
     label:'XR150L',
-    universos:{Nacional:9000000,Regiones:9000000},
+    universos:{Nacional:10000000,Regiones:10000000},
     cpm:{'FB Video Dep.':1190,'FB Video Nac.':854,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'LeadGenios':25000,'Seedtag':22880},
     refPct:0.74,refFreq:5.02,segDefault:'Regiones',
     deps:{'Antioquia':0.1671,'Valle del Cauca':0.0840,'Huila':0.0689,'Cundinamarca':0.0673,'Cauca':0.0586,'Santander':0.0527,'Caquetá':0.0463,'Córdoba':0.0428,'Magdalena':0.0388,'Atlántico':0.0368,'Bolívar':0.0333,'Nariño':0.0345,'Sucre':0.0309,'Putumayo':0.0293,'Tolima':0.0289,'Arauca':0.0250,'Cesar':0.0242,'Meta':0.0198,'Caldas':0.0186,'Casanare':0.0178}
   },
   XR190L:{
     label:'XR190L',
-    universos:{Nacional:12500000,Regiones:12600000},
+    universos:{Nacional:10000000,Regiones:10000000},
     cpm:{'FB Video Dep.':1061,'FB Video Nac.':791,'TikTok Top Feed':1381,'TikTok In Feed':600,'YouTube Instream':1375,'Konekti':30500,'Adslive Podcast':432},
     refPct:0.81,refFreq:4.90,segDefault:'Regiones',
     deps:{'Antioquia':0.1815,'Valle del Cauca':0.0962,'Cundinamarca':0.0914,'Santander':0.0532,'Cauca':0.0461,'Córdoba':0.0447,'Nariño':0.0447,'Huila':0.0409,'Atlántico':0.0334,'Magdalena':0.0324,'Sucre':0.0317,'Bolívar':0.0307,'Tolima':0.0297,'Caquetá':0.0266,'Nte. Santander':0.0249,'Caldas':0.0246,'Cesar':0.0246,'Putumayo':0.0239,'Meta':0.0218,'Casanare':0.0212}
   },
   PCX160:{
     label:'PCX160',
-    universos:{Nacional:13350000,Medellín:1200000,Cali:900000,Bucaramanga:650000,Bogotá:2500000,'Resto país':6100000},
+    universos:{Nacional:10000000,Medellín:1200000,Cali:900000,Bucaramanga:650000,Bogotá:2500000,'Resto país':4750000},
     cpm:{'FB Video Ad':1000,'TikTok Top View':4000,'TikTok Top Feed':2000,'TikTok In Feed':1500,'YouTube Instream':1900,'Nequi Video':15000,'Yango In App':18000,'Konekti':30500},
     refPct:0.64,refFreq:7.16,segDefault:'Nacional',
     deps:{'Antioquia':0.22,'Bogotá D.C.':0.20,'Valle del Cauca':0.10,'Cundinamarca':0.09,'Santander':0.07,'Atlántico':0.05,'Bolívar':0.04,'Risaralda':0.03,'Nariño':0.03,'Caldas':0.03,'Tolima':0.025,'Córdoba':0.02,'Huila':0.02,'Meta':0.015,'Cesar':0.015,'Magdalena':0.015}
